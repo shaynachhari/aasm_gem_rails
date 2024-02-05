@@ -1,0 +1,78 @@
+<!-- app/views/employees/index.html.erb -->
+<h1>Employees</h1>
+
+<div class="employee-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Holiday Approval State</th>
+        <th colspan="3">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @employees.each do |employee| %>
+        <tr>
+          <td><%= employee.name %></td>
+          <td><%= employee.email %></td>
+          <td><%= employee.holiday_approval_state %></td>
+          <td><%= link_to 'Show', employee %></td>
+          <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+          <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to 'New Employee', new_employee_path %>
+<br>
+
+
+<style>
+  .employee-table {
+    max-width: 800px;
+    margin: 20px auto;
+    overflow-x: auto;
+  }
+  h1{
+        text-align: center;
+
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: blue;
+    color: white;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tr:hover {
+    background-color: #ddd;
+  }
+
+  .employee-table a {
+    color: #3498db;
+    text-decoration: none;
+  }
+
+  .employee-table a:hover {
+    text-decoration: underline;
+  }
+</style>

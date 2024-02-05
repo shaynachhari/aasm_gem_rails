@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @order.name %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @order.state %>
+</p>
+
+<% if @order.pending? %>
+  <%= button_to 'processing', edit_order_pathorder_path(@order), method: :post, data: { confirm: 'Are you sure?' } %>
+  <%= button_to 'cancele', edit_order_pathorder_path(@order), method: :post, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

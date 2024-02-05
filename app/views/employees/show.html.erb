@@ -1,0 +1,8 @@
+<h1><%= @employee.name %></h1>
+
+<p><strong>Email:</strong> <%= @employee.email %></p>
+<p><strong>Holiday Approval State:</strong> <%= @employee.holiday_approval_state %></p>
+
+<%= render 'aasm_actions' %>
+
+<%= link_to 'Back', employees_path %>

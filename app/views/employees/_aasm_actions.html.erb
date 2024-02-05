@@ -1,0 +1,4 @@
+<% if @employee.pending? %>
+  <%= button_to 'Approve', approve_employee_path(@employee), method: :post, data: { confirm: 'Are you sure?' } %>
+  <%= button_to 'Reject', reject_employee_path(@employee), method: :post, data: { confirm: 'Are you sure?' } %>
+<% end %>
